@@ -14,3 +14,6 @@ dependencies = ["pandas", "os", "json", "random", "tempfile", "requests", "py7zr
 
 [tool.setuptools.packages.find]
 include = ["nba_pbp*"]
+
+[tool.setuptools.packages.find]
+where = ["."]
