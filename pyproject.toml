@@ -3,11 +3,13 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "nba-pbp"
+name = "nba_pbp"
 version = "0.1.0"
 description = "NBA play-by-play analysis package"
-authors = [{name="Your Name"}]
+readme = "README.md"
+authors = [{name="Henry Holt"}]
+license = { file = "LICENSE" }
 dependencies = ["pandas"]
 
 [tool.setuptools.packages.find]
-where = ["."]
+include = ["nba_pbp*"]
