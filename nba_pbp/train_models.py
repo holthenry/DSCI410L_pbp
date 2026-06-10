@@ -62,7 +62,6 @@ def combine_game_batches(batch):
     y_list = [item[1] for item in batch]
     len_list = [item[2] for item in batch]
     
-    # Concatenate along axis 0 to create continuous play vectors
     X_out = torch.cat(X_list, dim=0)
     y_out = torch.cat(y_list, dim=0)
     lengths_out = torch.cat(len_list, dim=0)
@@ -108,7 +107,6 @@ def training_loop(train_loader, val_loader, epochs=20, lr=1e-4):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print(f"device: {device}")
     
-    # Instantiate the model architecture
     model = ExpectedPointsLSTM(input_dim=23, hidden_dim=128, output_dim=1).to(device)
     criterion = nn.SmoothL1Loss(reduction='none') 
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-2)
@@ -145,7 +143,6 @@ def training_loop(train_loader, val_loader, epochs=20, lr=1e-4):
                 final_score = batch_y[i].item() 
                 
                 if final_score > 0 and true_length > 0:
-                    # Linearly ramp up to 2.0 or 3.0 at the final frame
                     ramp = torch.linspace(0.0, final_score, steps=true_length, device=device)
                     batch_y_dynamic[i, :true_length, 0] = ramp
                 else:
