@@ -9,7 +9,8 @@ description = "NBA play-by-play analysis package"
 readme = "README.md"
 authors = [{name="Henry Holt"}]
 license = { file = "LICENSE" }
-dependencies = ["pandas"]
+dependencies = ["pandas", "os", "json", "random", "tempfile", "requests", "py7zr",
+                "numpy", "torch", "glob", "matplotlib"]
 
 [tool.setuptools.packages.find]
 include = ["nba_pbp*"]
