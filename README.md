@@ -7,10 +7,11 @@ This project looks at NBA tracking data in order to determine credit and blame o
 To install: pip install git+https://github.com/holthenry/DSCI410L_pbp  
 OR clone and pip install .
 
-Then run the evaluation.ipynb or
+Then run the evaluation.ipynb or:
 
 from train_models import training_loop, get_data_loaders  
-from model import ExpectedPointsLSTM
+from model import ExpectedPointsLSTM  
+in the command line
 
 train_loader, val_loader = get_data_loaders(dir='./games', batch_size=_, files=_, shuffle=False)
 model, loss = training_loop(train_loader=train_loader, val_loader=val_loader, epochs=30, lr=1e-4)
