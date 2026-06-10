@@ -6,8 +6,8 @@ from torch.utils.data import Dataset, DataLoader, random_split
 import torch.optim as optim
 import torch.nn as nn
 
-from model import ExpectedPointsLSTM
-from data_loader import run_github_download_pipeline
+from model.model import ExpectedPointsLSTM
+from dataset.data_loader import run_github_download_pipeline
 
 class NBATrackingDataset(Dataset):
     def __init__(self, processed_dir="./games"):
