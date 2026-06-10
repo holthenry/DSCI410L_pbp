@@ -1,6 +1,18 @@
 # NBA Player Tracking
 ## Project Overview
 This project looks at NBA tracking data in order to determine credit and blame on individual plays.
+
+To install: pip install git+https://github.com/holthenry/DSCI410L_pbp
+OR clone and pip install .
+Running the evaluation.ipynb or
+from train_models import training_loop, get_data_loaders
+from model import ExpectedPointsLSTM
+
+train_loader, val_loader = get_data_loaders(dir='./games', batch_size=_, files=_, shuffle=False)
+model, loss = training_loop(train_loader=train_loader, val_loader=val_loader, epochs=30, lr=1e-4)
+
+The 'files' argument determines how many games should be downloaded and the 'shuffle' argument is whether or not random games should be chosen.
+
 ## Data Overview
 The data comes from the 2015-16 SportVU tracking data. This is the last year that the data was made public. This is combined with [play-by-play data](https://github.com/sumitrodatta/nba-alt-awards/blob/main/Historical/PBP%20Data/2015-16_pbp.csv) from the same season. The tracking data can be found [here](https://github.com/linouk23/NBA-Player-Movements/tree/master). Below is an example of one 'event' (essentially a possession), which due to the size of the files cuts off after a few seconds.
 ![something](./assets/play.gif)
